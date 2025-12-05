@@ -14,8 +14,6 @@ You can add, edit, delete, and track your tasks with ease. The list stays even a
 
 ## **📸 Project Preview**
 
-> You can replace this with your own screenshot.
-
 ![Project Preview](preview.png)
 
 ---
