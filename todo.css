@@ -1,0 +1,121 @@
+ h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgb(10, 106, 109);
+            text-align: center;
+        }   
+        #btn {
+            appearance: none;
+            font-size: 1.2rem;
+            height: 2.5rem;
+             width: auto;   
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: rgb(55, 240, 154);
+            border-radius: 1rem;
+
+        }
+        #btn:hover{
+            background-color: rgb(73, 168, 108);
+        }
+        #task {
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 1rem;
+            border: 2px solid rgb(85, 208, 235);
+            outline: 2px solid rgb(85, 235, 165);
+            width: 70%;
+            height: 1.8rem;  
+            text-align:start;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap:1rem;
+            align-items: center;
+            width: 90%;
+            height: auto;
+            flex-wrap: wrap;
+            margin: 0 auto;
+
+        }
+        .delete-btn {
+            font-size: 1rem;
+            color: white;
+            border: none;
+            border-radius: 2rem;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: red;
+            height: auto;
+            width: auto;
+        }
+        .delete-btn:hover{
+            background-color: rgb(213, 93, 93);;
+        }
+          li {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-family: sans-serif;
+            font-weight: 530;
+            color: rgb(10, 106, 109);
+            background-color: aliceblue;
+            list-style-type: none;
+            border: 2px solid rgb(85, 235, 165);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 15px;
+            width: 80vw;
+            max-width: 700px;
+            height: auto;
+        }
+        ul {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style-type: none;
+            
+        }
+      
+        #total{
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: rgb(31, 136, 139);
+            text-align:end;
+            margin:0.5rem 1rem; 
+        }   
+        .btns{
+            display: flex;
+            gap:0.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+        i{
+            font-size: 1.2rem;
+            color: rgb(10, 106, 109);
+            cursor: pointer;
+        }
+        .parent{
+            margin: 0.5rem 16rem;
+            border-radius: 0.8rem;
+            box-shadow: 2px 2px 10px rgba(36, 35, 35, 0.7) ;
+            border: 1px solid rgb(200, 200, 200);
+             padding-bottom: 1rem;
+        }
+        @media (max-width:1100px) {
+            .parent{
+                margin: 0.5rem auto;
+            }
+        }
+        @media (max-width:530px) {
+            #btn{
+               margin: 0.8rem auto 0.2rem;
+            }
+            #task{
+                width:100%;
+            }
+        }
