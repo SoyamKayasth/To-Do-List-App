@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // Add task on Enter key
 input.addEventListener("keydown", (event) => {
-  if (event.code === "Enter") add.click();
+  if (event.code === "Enter" || event.key === "Enter") add.click();
 });
 
 add.addEventListener("click", () => {
