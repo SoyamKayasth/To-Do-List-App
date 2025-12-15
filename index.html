@@ -10,17 +10,32 @@
     <link rel="stylesheet" href="todo.css">
 </head>
 <body>
-            <div class="parent">
+  <main>
+            <section class="parent">
       <h1>To-Do List</h1>
    
            <div class="container">
              <input type="text" name="task" id="task" placeholder="Enter your To-Do"> 
                  <button id = "btn" type = "submit">Add Task</button>
                </div>
-               </div>
+            </section>
                <p id = "total"> </p>
                     <ul id = "list">
                     </ul>
+
+                         <!-- alert box  -->
+             <div class="alert hide">
+             <span class="fas fa-exclamation-circle"></span>
+             <span class="msg">Please enter the task!</span>
+              <span class="close-btn">
+             <span class="fas fa-times"></span>
+             </span>
+           </div>
+    </main>
+
+        <footer>
+    <p>&copy; 2025 Soyam Kayasth &hearts; <u>All rights reserved.</u></p>
+  </footer>        
      <script src="localTodo.js"></script>
     <!-- <script src="to.js"></script> -->
 </body>

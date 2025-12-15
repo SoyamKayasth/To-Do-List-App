@@ -2,7 +2,11 @@ const add = document.getElementById("btn");
 const list = document.getElementById("list");
 const input = document.getElementById("task");
 const total = document.getElementById("total");
-const maxTasks = 20;
+const alertBox = document.querySelector(".alert");
+const closeBtn = document.querySelector(".close-btn");
+const alertMsg = document.querySelector(".msg");
+
+const maxTasks = 10;
 
 let taskArray = []; // main array to store tasks
 
@@ -20,14 +24,30 @@ input.addEventListener("keydown", (event) => {
 });
 
 add.addEventListener("click", () => {
+  // Check for max task limit
   if (taskArray.length >= maxTasks) {
-    alert(`Task limit reached (${maxTasks}). Delete some tasks first.`);
+  //  alert(`Task limit reached (${maxTasks}).<br> Delete some tasks first.`);
+      showAlert();
+         alertMsg.innerHTML = `Max task limit is reached (${maxTasks}).<br> &nbsp;  &nbsp; Delete some tasks first.`;
+      // hiding the alert after 5 seconds
+        setTimeout(() => {
+           closeAlert();
+        }, 5000);   
+
     return;
   }
 
   const taskText = input.value.trim();
   if (taskText === "") {
-    alert("Please enter a task");
+   // showing the alert for empty input
+    showAlert();
+      alertMsg.innerHTML = "Please enter the task!";
+    
+    // hiding the alert after 4 seconds
+        setTimeout(() => {
+           closeAlert();
+        }, 4000);
+
     return;
   }
 
@@ -97,7 +117,26 @@ function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(taskArray));
 }
 
-// Update total counter
+
+ // Show alert box
+ function showAlert() {
+    alertBox.classList.remove("hide");
+    alertBox.classList.add("show");
+    } 
+
+
+// Handle alert close button
+
+closeBtn.addEventListener("click", () => {
+    closeAlert();
+    });
+
+function closeAlert() {
+    alertBox.classList.remove("show");
+      alertBox.classList.add("hide");
+    }
+    
+    // Update total counter
 function updateTotal() {
   total.innerText = `Total Tasks: ${taskArray.length}`;
 }
