@@ -37,7 +37,8 @@ add.addEventListener("click", () => {
     return;
   }
 
-  const taskText = input.value.trim();
+  const taskText = input.value.trim();  // get the input value and trim spaces
+
   if (taskText === "") {
    // showing the alert for empty input
     showAlert();
@@ -50,12 +51,12 @@ add.addEventListener("click", () => {
 
     return;
   }
-
+// Create list item and add task
   createTaskElement(taskText);
-  taskArray.push(taskText);
-  saveTasks();
+  taskArray.push(taskText);  // Add to main array
+  saveTasks(); // Save to localStorage
   input.value = "";
-  updateTotal();
+  updateTotal(); // Update total counter
 });
 
 // Event delegation for edit and delete
@@ -114,7 +115,12 @@ function createTaskElement(taskText) {
 
 // Save to localStorage
 function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(taskArray));
+  localStorage.setItem("tasks", JSON.stringify(taskArray));  // Save main array to localStorage
+  
+  /* We use JSON.stringify to convert the array into a string format for storage 
+    because localStorage can only store strings. 
+    When retrieving, we use JSON.parse to convert it back to an array. */ 
+
 }
 
 
