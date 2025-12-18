@@ -26,9 +26,9 @@ input.addEventListener("keydown", (event) => {
 add.addEventListener("click", () => {
   // Check for max task limit
   if (taskArray.length >= maxTasks) {
-  //  alert(`Task limit reached (${maxTasks}).<br> Delete some tasks first.`);
       showAlert();
          alertMsg.innerHTML = `Max task limit is reached (${maxTasks}).<br> &nbsp;  &nbsp; Delete some tasks first.`;
+          speak("Maximum task limit reached. Please delete some tasks first."); // Text-to-Speech feedback
       // hiding the alert after 5 seconds
         setTimeout(() => {
            closeAlert();
@@ -43,7 +43,8 @@ add.addEventListener("click", () => {
    // showing the alert for empty input
     showAlert();
       alertMsg.innerHTML = "Please enter the task!";
-    
+       speak("Please enter the task"); // Text-to-Speech feedback
+
     // hiding the alert after 4 seconds
         setTimeout(() => {
            closeAlert();
