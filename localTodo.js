@@ -54,6 +54,8 @@ add.addEventListener("click", () => {
 // Create list item and add task
   createTaskElement(taskText);
   taskArray.push(taskText);  // Add to main array
+
+  speak("Task is added"); // Text-to-Speech feedback
   saveTasks(); // Save to localStorage
   input.value = "";
   updateTotal(); // Update total counter
@@ -64,7 +66,7 @@ list.addEventListener("click", (e) => {
   const li = e.target.closest("li");
   if (!li) return;
 
-  const textSpan = li.querySelector(".task-text");
+  const textSpan = li.querySelector(".task-text");  // Get the task text span
   const oldTask = textSpan.textContent;
 
   // Edit
@@ -73,11 +75,12 @@ list.addEventListener("click", (e) => {
     if (newTask && newTask.trim()) {
       textSpan.textContent = newTask.trim();
 
+      // Update main array
       const index = taskArray.indexOf(oldTask);
-      if (index !== -1) {
+      if (index !== -1) { 
         taskArray[index] = newTask.trim();
       }
-
+      speak("Task is edited successfully"); // Text-to-Speech feedback
       saveTasks();
     }
   }
@@ -87,6 +90,7 @@ list.addEventListener("click", (e) => {
     li.remove();
     taskArray = taskArray.filter((task) => task !== oldTask);
     saveTasks();
+    speak("Task is deleted"); // Text-to-Speech feedback
     updateTotal();
   }
 });
@@ -145,4 +149,18 @@ function closeAlert() {
     // Update total counter
 function updateTotal() {
   total.innerText = `Total Tasks: ${taskArray.length}`;
+}
+  // Text-to-Speech function
+function speak(text) {
+ if (!window.speechSynthesis) return;
+
+  // Stop any ongoing or queued speech (speech reset)
+  window.speechSynthesis.cancel();
+
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US"; // language
+
+  speech.rate = 1;      // speed (0.5 slow – 2 fast)
+  speech.pitch = 1;    // voice pitch
+  window.speechSynthesis.speak(speech);
 }
